@@ -1,0 +1,14 @@
+{
+  "name": "moneyframe",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["apps/web", "apps/api"],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c blue,green \"npm run dev -w @moneyframe/api\" \"npm run dev -w @moneyframe/web\"",
+    "build": "npm run build -w @moneyframe/web",
+    "start": "concurrently -k -n api,web -c blue,green \"npm run start -w @moneyframe/api\" \"npm run start -w @moneyframe/web\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
